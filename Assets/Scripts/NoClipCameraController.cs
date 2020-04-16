@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class NoClipCameraController : MonoBehaviour
 {
-    public IPlayerInput m_input = null;
+    public PlayerInput m_input = null;
     public float m_moveSpeed = 5.0f;
 
     // Start is called before the first frame update
     void Start()
-    {    
+    {
     }
 
     // Update is called once per frame

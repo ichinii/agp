@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public IPlayerInput m_input = null;
+    public PlayerInput m_input;
     public float m_moveSpeed = 5.0f;
 
     // Start is called before the first frame update
@@ -16,9 +16,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (m_input != null) {
-            var moveDir = m_input.PlayerMoveDir(transform) * m_moveSpeed;
-            var body = GetComponent<Rigidbody>();
-            body.AddForce(moveDir);
+            //var moveDir = m_input.PlayerMoveDir(transform) * m_moveSpeed;
+            //var body = GetComponent<Rigidbody>();
+            //body.AddForce(moveDir);
         }
     }
 }

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class PlayerCameraController : MonoBehaviour
 {
-    public IPlayerInput m_input = null;
+    public PlayerInput m_input = null;
 
     // Start is called before the first frame update
     void Start()
