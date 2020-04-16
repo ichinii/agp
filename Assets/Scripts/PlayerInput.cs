@@ -4,8 +4,6 @@ using UnityEngine;
 
 public abstract class PlayerInput : MonoBehaviour
 {
-    public float m_maxVerticalLookAngle = 70.0f;
-    public float m_lookRotationSpeed = 3.0f;
     public float m_horizontalLookAngle;
     public float m_verticalLookAngle;
     public float m_tiltLookAngle;
@@ -21,6 +19,9 @@ public abstract class PlayerInput : MonoBehaviour
     public abstract float VerticalLookAngle(float previous);
 
     public abstract float TiltLookAngle(float previous);
+
+    public abstract bool ActionFire();
+    public abstract bool ActionJump();
 
     public virtual void Update()
     {
@@ -64,6 +65,11 @@ public abstract class PlayerInput : MonoBehaviour
     public void SetEulerLookAngles(Vector3 angles)
     {
         SetEulerLookAngles(angles.x, angles.y, angles.z);
+    }
+
+    public Quaternion QuaternionLookAngle()
+    {
+        return Quaternion.Euler(EulerLookAngles());
     }
 
     public Vector3 LookDir()

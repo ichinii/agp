@@ -5,7 +5,7 @@ using UnityEngine;
 public class NoClipCameraController : MonoBehaviour
 {
     public PlayerInput m_input = null;
-    public float m_moveSpeed = 5.0f;
+    public float m_moveSpeed = 1.0f;
 
     // Start is called before the first frame update
     void Start()

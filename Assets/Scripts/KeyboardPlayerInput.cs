@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class KeyboardPlayerInput : PlayerInput
 {
+    public float m_maxVerticalLookAngle = 80.0f;
+    public float m_lookRotationSpeed = 1.0f;
+
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     override public float RightMove()
@@ -25,16 +29,27 @@ public class KeyboardPlayerInput : PlayerInput
 
     override public float HorizontalLookAngle(float previous)
     {
-        return previous + Input.GetAxis("Mouse X");
+        return previous + m_lookRotationSpeed * Input.GetAxis("Mouse X");
     }
 
     override public float VerticalLookAngle(float previous)
     {
-        return previous + Input.GetAxis("Mouse Y");
+        float angle = previous - m_lookRotationSpeed * Input.GetAxis("Mouse Y");
+        return Mathf.Clamp(angle, -m_maxVerticalLookAngle, m_maxVerticalLookAngle);
     }
 
     override public float TiltLookAngle(float previous)
     {
         return 0.0f;
+    }
+
+    override public bool ActionFire()
+    {
+        return Input.GetKey(KeyCode.Mouse0);
+    }
+
+    override public bool ActionJump()
+    {
+        return Input.GetKey(KeyCode.Space);
     }
 }
